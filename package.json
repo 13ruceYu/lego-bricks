@@ -1,19 +1,41 @@
 {
-  "name": "lego-bricks",
-  "version": "0.1.0",
-  "private": true,
+  "name": "bobo-lego-bricks",
+  "version": "1.0.0",
+  "private": false,
+  "author": "bruceyu",
+  "license": "MIT",
+  "keywords": [
+    "vue3",
+    "UI",
+    "components"
+  ],
+  "type": "module",
+  "main": "dist/lego-bricks.esm.js",
+  "module": "dist/logo-bricks.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "npm run clean && npm run build:esm && npm run build:umd",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:esm": "rollup --config build/rollup.esm.config.js",
+    "build:umd": "rollup --config build/rollup.umd.config.js",
+    "clean": "rimraf ./dist"
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "lodash-es": "^4.17.21"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.45"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/jest": "^27.0.1",
+    "@types/lodash-es": "^4.17.6",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -30,6 +52,12 @@
     "jest": "^27.0.5",
     "less": "^4.0.0",
     "less-loader": "^8.0.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.7.2",
+    "rollup-plugin-css-only": "^4.3.0",
+    "rollup-plugin-less": "^1.1.3",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-vue": "^6.0.0",
     "ts-jest": "^27.0.4",
     "typescript": "~4.5.5"
   }
