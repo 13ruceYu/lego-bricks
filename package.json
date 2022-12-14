@@ -1,6 +1,6 @@
 {
-  "name": "lego-bricks",
-  "version": "1.0.0",
+  "name": "bobo-lego-bricks",
+  "version": "1.0.1",
   "private": false,
   "author": "bruceyu",
   "license": "MIT",
@@ -9,8 +9,8 @@
     "UI",
     "components"
   ],
-  "main": "dist/lego-bricks.umd.js",
-  "module": "dist/logo-bricks.esm.js",
+  "main": "dist/bobo-lego-bricks.umd.js",
+  "module": "dist/bobo-logo-bricks.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -18,11 +18,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "npm run clean && npm run build:esm && npm run build:umd",
-    "test:unit": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit",
+    "test:watch": "vue-cli-service test:unit -- --watch",
     "lint": "vue-cli-service lint",
     "build:esm": "rollup --config build/rollup.esm.config.mjs",
     "build:umd": "rollup --config build/rollup.umd.config.mjs",
-    "clean": "rimraf ./dist"
+    "clean": "rimraf ./dist",
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
   },
   "dependencies": {
     "core-js": "^3.8.3",

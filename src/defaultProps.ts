@@ -99,7 +99,7 @@ export const isEditingProp = {
 export const textStylePropNames = without(Object.keys(textDefaultProps), 'actionType', 'url', 'text')
 export const imageStylePropsNames = without(Object.keys(imageDefaultProps), 'actionType', 'url', 'src')
 export const shapeStylePropsNames = without(Object.keys(imageDefaultProps), 'actionType', 'url')
-export const transformToComponentProps = <T extends {}>(props: T) => {
+export const transformToComponentProps = <T extends object>(props: T) => {
   const mapProps = mapValues(props, (item) => {
     return {
       type: (item as any).constructor as StringConstructor,
