@@ -20,11 +20,12 @@
     "build": "npm run clean && npm run build:esm && npm run build:umd",
     "test": "vue-cli-service test:unit",
     "test:watch": "vue-cli-service test:unit -- --watch",
-    "lint": "vue-cli-service lint",
+    "lint": "vue-cli-service lint --max-warnings 2",
     "build:esm": "rollup --config build/rollup.esm.config.mjs",
     "build:umd": "rollup --config build/rollup.umd.config.mjs",
     "clean": "rimraf ./dist",
-    "prepublishOnly": "npm run lint && npm run test && npm run build"
+    "prepublishOnly": "npm run lint && npm run test && npm run build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "core-js": "^3.8.3",
@@ -50,6 +51,7 @@
     "babel-jest": "^27.0.6",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "husky": "^8.0.2",
     "jest": "^27.0.5",
     "less": "^4.0.0",
     "less-loader": "^8.0.0",
